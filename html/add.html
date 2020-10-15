@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Flavor Saver</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.typekit.net/kwt7kkl.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://kit.fontawesome.com/bb85eff620.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+<div class="container">
+	
+	<!-- 	—————————— Start Menu —————————— -->
+	<div class="menu" style="display: none;">
+		<div class="close"><i class="fal fa-times"></i></div>
+		<ul class="nav w-100">
+			<li><a href="feed.html">Feed</a></li>
+			<li><a href="add.html">New Post</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li><a href="profile.html">Profile</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</div>
+	<!-- 	—————————— End Menu —————————— -->
+	
+	<!-- 	—————————— Start Header —————————— -->
+	<header class="row m-0 fixed-top">
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="#" class="menu-button"><i class="fal fa-bars"></i></a>
+		</div>
+		<div class="col-8 p-0 d-flex align-items-center">
+			<div class="logo"><a href="feed.html">Flavor Saver</a></div>
+		</div>
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="profile.html" class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></a>
+		</div>
+	</header>
+	<!-- 	—————————— End Header —————————— -->
+	
+	<div class="body-content row d-flex justify-content-center">
+		<div class="col-12">
+			
+			<h1>Add Post</h1>	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<form id="add-post" class="mb-5">
+				
+				
+				
+				
+				
+				<div class="form-group file-upload">
+					<label class="mb-1" for="postimage">Upload An Image</label>
+					<div class="image-container">
+				  		<img class="file-upload-content" style="display: none;" src="#">
+				  			<button type="button" onclick="removeAndRestart()" class="remove-image close" style="display:none"><i class="fal fa-times"></i></button>
+				  		<div class="image-upload-wrap">
+							<input class="file-upload-input" type='file' onchange="readReplaceImage(this);" accept="image/*" />
+							<span>Drag & Drop or Click to Add</span>
+				  		</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="pb-0" for="location">Location</label>
+					<input id="location" type="text" class="form-control" aria-label="Location" aria-describedby="location">
+				</div>
+				<div class="form-group">
+					<label class="pb-0" for="caption">Caption</label>
+					<input id="caption" type="text" class="form-control" aria-label="Caption" aria-describedby="caption">
+				</div>
+				<div class="form-group mb-0">
+					<label class="pb-0" for="hashtags">Hashtags</label>
+					<input id="hashtags" type="text" class="form-control" aria-label="Hashtags" aria-describedby="hashtags">
+				</div>
+				<button type="submit" class="btn btn-primary">Post</button>
+			</form>
+
+		</div>
+	</div>
+	
+	<!-- 	—————————— Start Footer —————————— -->
+	<footer class="row m-0 fixed-bottom">
+		<a href="search.html" class="search col-6 text-center">
+			<i class="fas fa-search"></i>
+			Search
+		</a>
+		<a href="add.html" class="new-post col-6 text-center">
+			<i class="far fa-plus"></i>
+			New Post
+		</a>
+	</footer>
+	<!-- 	—————————— End Footer —————————— -->
+	
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

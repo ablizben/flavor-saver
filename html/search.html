@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Flavor Saver</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.typekit.net/kwt7kkl.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://kit.fontawesome.com/bb85eff620.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+<div class="container">
+	
+	<!-- 	—————————— Start Menu —————————— -->
+	<div class="menu" style="display: none">
+		<div class="close"><i class="fal fa-times"></i></div>
+		<ul class="nav w-100">
+			<li><a href="feed.html">Feed</a></li>
+			<li><a href="add.html">New Post</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li><a href="profile.html">Profile</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</div>
+	<!-- 	—————————— End Menu —————————— -->
+	
+	<!-- 	—————————— Start Save to Board Modal —————————— -->
+	<div class="save-modal" style="display: none;">
+		<div class="close"><i class="fal fa-times"></i></div>
+		<div class="w-100">
+			<h1>Save to Board</h1>
+			<form>
+				<div class="input-group mt-2">
+					<input type="text" class="form-control" placeholder="Create a Board" aria-label="Recipient's username" aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-plus mt-0" type="button" id="button-addon2"><i class="far fa-plus"></i></button>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-secondary">Save</button>
+			</form>
+		</div>
+	</div>
+	<!-- 	—————————— End Save to Board Modal —————————— -->
+	
+	<!-- 	—————————— Start Header —————————— -->
+	<header class="row m-0 fixed-top">
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="#" class="menu-button"><i class="fal fa-bars"></i></a>
+		</div>
+		<div class="col-8 p-0 d-flex align-items-center">
+			<div class="logo"><a href="feed.html">Flavor Saver</a></div>
+		</div>
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="profile.html" class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></a>
+		</div>
+	</header>
+	<!-- 	—————————— End Header —————————— -->
+	
+	<div class="body-content row d-flex justify-content-center">
+		<div class="col-12">
+			
+			<!-- 	—————————— Start Search Bar —————————— -->
+			<form>
+				<div class="form-group">
+					<div class="input-wrap">
+						<i class="fas fa-search"></i>
+						<input id="search" type="text" class="form-control search" placeholder="Search" aria-label="Search Bar" aria-describedby="search">
+					</div>
+				</div>
+			</form>
+			<!-- 	—————————— End Search Bar —————————— -->
+			
+			<!-- 	—————————— Start Search Results —————————— -->
+			<ul class="search-results" style="display:none;">
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimore</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+				<!-- 	—————————— Start Location List Item —————————— -->
+				<a href="#" class="location">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">Baltimore, Maryland</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Location List Item —————————— -->
+				
+				<!-- 	—————————— Start Profile List Item —————————— -->
+				<a href="#" class="profile">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimoremuseumofart</span>
+								<span class="meta">The Baltimore Museum of Art</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Profile List Item —————————— -->
+				
+				<!-- 	—————————— Start Profile List Item —————————— -->
+				<a href="#" class="profile">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimorefoodscene</span>
+								<span class="meta">Baltimore Foodie</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Profile List Item —————————— -->
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimorecity</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimoreeats</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+				<!-- 	—————————— Start Profile List Item —————————— -->
+				<a href="#" class="profile">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimoreweds</span>
+								<span class="meta">Baltimore Weddings</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Profile List Item —————————— -->
+				
+				<!-- 	—————————— Start Profile List Item —————————— -->
+				<a href="#" class="profile">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltmag</span>
+								<span class="meta">Baltimore Magazine</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Profile List Item —————————— -->
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimorefoodie</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+				<!-- 	—————————— Start Profile List Item —————————— -->
+				<a href="#" class="profile">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">thebaltimorefoodie</span>
+								<span class="meta">The Blue Bearded Foodie</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Profile List Item —————————— -->
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimoremd</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+				<!-- 	—————————— Start Hashtag List Item —————————— -->
+				<a href="#" class="hashtag">
+					<li class="row m-0">
+						<div class="col image d-flex align-items-center p-0">
+							<span class="profile-circle"></span>
+						</div>
+						<div class="col d-flex align-items-center p-0">
+							<div>
+								<span class="term">baltimorefood</span>
+							</div>
+						</div>
+					</li>
+				</a>
+				<!-- 	—————————— End Hashtag List Item —————————— -->
+				
+			</ul>
+			<!-- 	—————————— End Search Results —————————— -->
+			
+			<!-- 	—————————— Start Search Instructions —————————— -->
+			<div class="search-instructions text-center d-flex align-items-center">
+				<div class="w-100">
+					<div class="search-icon">
+						<i class="far fa-search"></i>
+					</div>
+					<p>Search for names, usernames, locations, or hashtags</p>
+				</div>
+			</div>
+			<!-- 	—————————— End Search Instructions —————————— -->
+
+		</div>
+	</div>
+	
+	<!-- 	—————————— Start Footer —————————— -->
+	<footer class="row m-0 fixed-bottom">
+		<a href="search.html" class="search col-6 text-center">
+			<i class="fas fa-search"></i>
+			Search
+		</a>
+		<a href="add.html" class="new-post col-6 text-center">
+			<i class="far fa-plus"></i>
+			New Post
+		</a>
+	</footer>
+	<!-- 	—————————— End Footer —————————— -->
+	
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
