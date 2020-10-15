@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Flavor Saver</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.typekit.net/kwt7kkl.css">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://kit.fontawesome.com/bb85eff620.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+<div class="container">
+	
+	<!-- 	—————————— Start Menu —————————— -->
+	<div class="menu" style="display: none;">
+		<div class="close"><i class="fal fa-times"></i></div>
+		<ul class="nav w-100">
+			<li><a href="feed.html">Feed</a></li>
+			<li><a href="add.html">New Post</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li><a href="profile.html">Profile</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</div>
+	<!-- 	—————————— End Menu —————————— -->
+	
+	<!-- 	—————————— Start Save to Board Modal —————————— -->
+	<div class="save-modal" style="display: none;">
+		<div class="close"><i class="fal fa-times"></i></div>
+		<div class="w-100">
+			<h1>Save to Board</h1>
+			<form>
+				<div class="form-group mb-0">
+					<label for="sort">Board</label>
+					<div class="select-wrap">
+						<select class="form-control" id="sort">
+							<option>General</option>
+							<option>Recipe Ideas</option>
+							<option>Local</option>
+						</select>
+						<i class="fas fa-chevron-down"></i>
+					</div>	
+				</div>
+				<div class="input-group mt-2">
+					<input type="text" class="form-control plus" placeholder="Create a Board" aria-label="Recipient's username" aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button class="btn btn-plus mt-0" type="button" id="button-addon2"><i class="far fa-plus"></i></button>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-secondary">Save</button>
+			</form>
+		</div>
+	</div>
+	<!-- 	—————————— End Save to Board Modal —————————— -->
+	
+	<!-- 	—————————— Start Header —————————— -->
+	<header class="row m-0 fixed-top">
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="#" class="menu-button"><i class="fal fa-bars"></i></a>
+		</div>
+		<div class="col-8 p-0 d-flex align-items-center">
+			<div class="logo"><a href="feed.html">Flavor Saver</a></div>
+		</div>
+		<div class="col-2 p-0 d-flex align-items-center">
+			<a href="profile.html" class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></a>
+		</div>
+	</header>
+	<!-- 	—————————— End Header —————————— -->
+	
+	<div class="body-content row d-flex justify-content-center">
+		<div class="col-12">
+			
+			<!-- 	—————————— Start Post Card —————————— -->			
+			<div class="card mt-0">
+				<div class="card-header row m-0 pt-0">
+					<div class="col image d-flex align-items-center">
+						<a href="#" class="profile-circle" style="background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;"></a>
+					</div>
+					<div class="col d-flex align-items-center">
+						<div>
+							<a href="#" class="username">woodberrykitchen</a>
+							<a href="#" class="location"><i class="fas fa-map-marker-alt"></i> Baltimore, Maryland</a>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<div class="card-image" style="height: 100vw; background: url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center center;">
+						<div class="save-hover">
+							<button class="btn text-white btn-small">
+								<i class="fas fa-bookmark"></i>
+								Save
+							</button>
+						</div>
+					</div>
+				</a>
+				<div class="card-body">
+					<p class="card-text">Come on by & pick up your own Cast Iron Chicken tonight! Roasted in the wood-fired oven & served on a bed of panzanella.</p>
+					<p class="card-text">Check out our full supper menu at woodberrykitchen.com & order for pick-up every Wednesday through Sunday!</p>
+					<p class="date mb-0">October 11</p>
+				</div>
+			</div>
+			<!-- 	—————————— End Post Card —————————— -->
+
+		</div>
+	</div>
+	
+	<!-- 	—————————— Start Footer —————————— -->
+	<footer class="row m-0 fixed-bottom">
+		<a href="search.html" class="search col-6 text-center">
+			<i class="fas fa-search"></i>
+			Search
+		</a>
+		<a href="add.html" class="new-post col-6 text-center">
+			<i class="far fa-plus"></i>
+			New Post
+		</a>
+	</footer>
+	<!-- 	—————————— End Footer —————————— -->
+	
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
