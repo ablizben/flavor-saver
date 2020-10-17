@@ -1,9 +1,9 @@
 import React from 'react';
-import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import PrivateRoute from './components/PrivateRoute';
-import ForgotPassword from './components/ForgotPassword.js';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import PrivateRoute from './pages/PrivateRoute';
+import ForgotPassword from './pages/ForgotPassword.js';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
