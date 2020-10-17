@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
+import Sort from "../components/Sort";
 
 export default function Dashboard() {
 
@@ -21,18 +22,25 @@ export default function Dashboard() {
     };
 
     return (
-        <>
-            <Card>
-                <Card.Body>
-                <h2 className="text-center mb-4">You are logged in</h2>
-                {error && <Alert variant="danger">{error}</Alert>}
-                <strong>User:</strong> {currentUser.email}
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Button variant="link" onClick={handleLogout}>Log Out</Button>
-            </div>
-        </>
+        <div className="container">
+            {/* Header/Nav/Menu */}
+
+            <Sort />
+
+        </div>
+        //*ORIGINAL CODE*/
+        // <>
+        //     <Card>
+        //         <Card.Body>
+        //         <h2 className="text-center mb-4">You are logged in</h2>
+        //         {error && <Alert variant="danger">{error}</Alert>}
+        //         <strong>User:</strong> {currentUser.email}
+        //         </Card.Body>
+        //     </Card>
+        //     <div className="w-100 text-center mt-2">
+        //         <Button variant="link" onClick={handleLogout}>Log Out</Button>
+        //     </div>
+        // </>
     );
 };
 
