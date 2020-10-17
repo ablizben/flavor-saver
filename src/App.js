@@ -8,6 +8,26 @@ import { Container } from 'react-bootstrap';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+//Components
+// import Header from "./components/Header";
+// import Menu from "./components/Menu";
+// import Footer from "./components/Footer";
+
+//Pages
+// import AddPost from "./pages/AddPost";
+// import Board from "./pages/Board";
+// import Boards from "./pages/Boards";
+// import Feed from "./pages/Feed";
+// import Hashtag from "./pages/Hashtag";
+// import Location from "./pages/Location";
+// import Map from "./pages/Map";
+// import Post from "./pages/Post";
+// import Profile from "./pages/Profile";
+// import Search from "./pages/Search";
+
+
+
+
 function App() {
   return (
     <Container 
