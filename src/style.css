@@ -479,6 +479,26 @@ p.bio {
 .boards > .col-6 {
     padding: 5px;
 }
+.board-images .image-one, .board-images .image-two, .board-images .image-three {
+    background-size: cover!important;
+    background-position: center center!important;
+}
+.board-images .image-one {
+    height: calc(50vw - 10px);
+    border-radius: 4px 0 0 4px;
+}
+.board-images .image-two {
+    height: calc(25vw - 6px);
+    border-radius: 0 4px 0 0;
+    margin-bottom: 2px;
+}
+.board-images .image-three {
+    height: calc(25vw - 6px);
+    border-radius: 0 4px 0 0;
+}
+
+
+
 
 
 
