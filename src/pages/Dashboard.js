@@ -3,6 +3,7 @@ import { Card, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import Sort from "../components/Sort";
+import PostCard from "../components/PostCard";
 
 export default function Dashboard() {
 
@@ -26,6 +27,9 @@ export default function Dashboard() {
             {/* Header/Nav/Menu */}
 
             <Sort />
+
+            {/* Have to figure out how to map through all of the posts */}
+            <PostCard />
 
         </div>
         //*ORIGINAL CODE*/
