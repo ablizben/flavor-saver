@@ -9,13 +9,10 @@ export default function Sort() {
                     <select className="form-control" id="sort">
                         <option>Newest First</option>
                         <option>Closest First</option>
-                        <i class="fas fa-chevron-down"></i>
+                        <i className="fas fa-chevron-down"></i>
                     </select>
                 </div>
             </div>
         </form>
     );
 };
-
-
-
