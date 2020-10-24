@@ -2,10 +2,14 @@ import React, { useRef, useState } from 'react';
 // import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
+    const usernameRef = useRef();
+    const displayNameRef = useRef();
+    const locationRef = useRef();
     // const passwordConfirmRef = useRef();
     const { signup } = useAuth();
     const [error, setError] = useState('');
@@ -20,6 +24,21 @@ export default function Signup() {
         //     return setError('Passwords do not match');
         // }
 
+        console.log(`Email: ${emailRef.current.value}`);
+        console.log(`Username: ${usernameRef.current.value}`);
+        console.log(`Display Name: ${displayNameRef.current.value}`);
+        console.log(`Location: ${locationRef.current.value}`);
+
+        const user = {
+            email: emailRef.current.value,
+            username: usernameRef.current.value,
+            displayName: displayNameRef.current.value,
+            location: locationRef.current.value
+        };
+        
+        axios.post('http://localhost:3001/users/add', user)
+            .then(res => console.log(res.data));
+
         try {
             setError('');
             setLoading(true);
@@ -30,6 +49,7 @@ export default function Signup() {
         }
         setLoading(false);
     };
+    
 
     return (
         <div className="login container-fluid">
@@ -55,13 +75,13 @@ export default function Signup() {
                                 <input ref={passwordRef} required placeholder="Password" type="password" className="form-control line-input" id="password"></input>
                             </div>
                             <div className="form-group">
-                                <input placeholder="Username" type="text" className="form-control line-input" id="username"></input>
+                                <input ref={usernameRef} placeholder="Username" type="text" className="form-control line-input" id="username"></input>
                             </div>
                             <div className="form-group">
-                                <input placeholder="Display Name" type="text" className="form-control line-input" id="name"></input>
+                                <input ref={displayNameRef} placeholder="Display Name" type="text" className="form-control line-input" id="name"></input>
                             </div>
                             <div className="form-group mb-0">
-                                <input placeholder="Location" type="text" className="form-control line-input" id="location"></input>
+                                <input ref={locationRef} placeholder="Location" type="text" className="form-control line-input" id="location"></input>
                             </div>
                             <button type="submit" className="btn btn-secondary" disabled={loading}>Sign Up</button>
                         </form>

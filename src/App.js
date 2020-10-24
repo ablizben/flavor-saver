@@ -2,6 +2,7 @@ import React from 'react';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import AddPost from './pages/AddPost';
 import PrivateRoute from './pages/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword.js';
 import { Container } from 'react-bootstrap';
@@ -45,6 +46,7 @@ function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
+              <Route path="/add-post" component={AddPost} />
             </Switch>
           </AuthProvider>  
         </Router>

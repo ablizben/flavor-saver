@@ -6,7 +6,7 @@ function Footer() {
             <a href="search.html" className="search col-6 text-center">
                 <i className="fas fa-search"></i> Search
             </a>
-            <a href="add.html" className="new-post col-6 text-center">
+            <a href="/add-post" className="new-post col-6 text-center">
                 <i className="far fa-plus"></i> New Post
             </a>
         </footer>
