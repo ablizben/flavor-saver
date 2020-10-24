@@ -4,12 +4,25 @@ import { useAuth } from '../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import Sort from "../components/Sort";
 import PostCard from "../components/PostCard";
+import axios from 'axios';
+
 
 export default function Dashboard() {
 
     const [error,setError] = useState("");
     const { currentUser, logout } = useAuth();
     const { history } = useHistory();
+    const [userId, setUserId] = useState("");
+
+    // console.log(currentUser.email);
+
+    axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+        .then(
+            // res => console.log(res.data[0]._id),
+            res => setUserId(res.data[0]._id),
+            console.log(`New userId State: ${userId}`)
+            );
+
 
     async function handleLogout() {
         setError('');

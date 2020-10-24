@@ -10,14 +10,23 @@ router.route('/').get((req, res) => {
 });
 
 //Gets user by id
-//"/users/:id"
-router.route('/:id').get((req, res) => {
+//"/users/id/:id"
+router.route('/id/:id').get((req, res) => {
     User.findById(req.params.id)
         .then(user => res.json(user))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//Gets user by email
+//"/users/email/:email"
+router.route('/email/:email').get((req, res) => {
+    User.find({ "email": req.params.email })
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 //Adds a user to the database
+//"users/add"
 router.route('/add').post((req, res) => {
     const email = req.body.email;
     const username = req.body.username;

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 // import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Signup() {
     const emailRef = useRef();
@@ -28,6 +29,16 @@ export default function Signup() {
         console.log(`Display Name: ${displayNameRef.current.value}`);
         console.log(`Location: ${locationRef.current.value}`);
 
+        const user = {
+            email: emailRef.current.value,
+            username: usernameRef.current.value,
+            displayName: displayNameRef.current.value,
+            location: locationRef.current.value
+        };
+        
+        axios.post('http://localhost:3001/users/add', user)
+            .then(res => console.log(res.data));
+
         try {
             setError('');
             setLoading(true);
@@ -38,6 +49,7 @@ export default function Signup() {
         }
         setLoading(false);
     };
+    
 
     return (
         <div className="login container-fluid">
