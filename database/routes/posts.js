@@ -31,7 +31,7 @@ router.route('/add').post((req, res) => {
     const location = req.body.location;
     const caption = req.body.caption;
     const hashtags = req.body.hashtags;
-    const date = Date.parse(req.body.date);
+    // const date = Date.parse(req.body.date);
     const userId = req.body.userId;
 
     const newPost = new Post({
@@ -39,7 +39,7 @@ router.route('/add').post((req, res) => {
         location, 
         caption, 
         hashtags,
-        date,
+        // date,
         userId
     });
 
