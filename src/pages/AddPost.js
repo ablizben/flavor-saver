@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, Redirect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useHistory } from 'react-router-dom';
 import Header from "../components/Header";
@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import axios from 'axios';
 
 
-export default function AddPost() {
+export default function AddPost(props) {
 
     const [error,setError] = useState("");
     const { currentUser, logout } = useAuth();
@@ -39,6 +39,8 @@ export default function AddPost() {
         
         axios.post('http://localhost:3001/posts/add', post)
             .then(res => console.log(res.data));
+
+        props.history.push('/');
     };
 
     return (
