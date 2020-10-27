@@ -340,7 +340,6 @@ p.date {
     top: 0;
     left: 0;
     background: #fff;
-    opacity: 0;
     z-index: 1040;
     transition: 0.3s ease;
 }
@@ -375,7 +374,6 @@ button.close:focus {
     z-index: 1040;
     top: 0;
     left: 0;
-    opacity: 0;
 }
 .menu .close {
     opacity: 1;
