@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import AddPost from './pages/AddPost';
 import PrivateRoute from './pages/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword.js';
+import Profile from './pages/Profile';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -39,6 +40,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/add-post" component={AddPost} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </AuthProvider>  
     </Router>   

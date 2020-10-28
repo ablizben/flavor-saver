@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-import Grid from './components/Grid';
-import ProfileInfo from './components/ProfileInfo';
-import ProfileNav from './components/ProfileNav';
-import Footer from './components/Footer';
-import Boards from './components/Boards';
+import ProfileInfo from '../components/ProfileInfo';
+import ProfileNav from '../components/ProfileNav';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Grid from '../components/Grid';
+import Boards from '../components/Boards';
 
 const profile = {
 	user: {
@@ -71,36 +72,51 @@ const profile = {
 	]
   }
 
-class Profile extends Component {
-    render() {
-        return (
-			<div className="container">
-				{/* Menu */}
-				{/* Header */}	
-				<div className="body-content row d-flex justify-content-center">
-					<div className="col-12">			
-				<ProfileInfo 
-					image={profile.user.image}
-					name={profile.user.name} 
-					location={profile.user.location}
-					locationURL={profile.user.locationURL}
-					posts={profile.user.posts}
-					followers={profile.user.followers}
-					following={profile.user.following}
-					bio={profile.user.bio}
-					website={profile.user.website}
-					reservations={profile.user.reservations}
-					orderOnline={profile.user.orderOnline}
-				/>
-				<ProfileNav grid="active" />
-				{/* <Grid posts={profile.posts} /> */}
-				<Boards boards={profile.boards} />
-					</div>
+function Profile() {
+
+	const [toggleContent, setToggleContent] = useState(false);
+	
+	useEffect(() => {}, [toggleContent]);
+	
+	const toggle = () => {
+		setToggleContent(!toggleContent);
+	};
+
+	return (
+		<div className="container">
+			<Header />	
+			<div className="body-content row d-flex justify-content-center">
+				<div className="col-12">			
+					<ProfileInfo 
+						image={profile.user.image}
+						name={profile.user.name} 
+						location={profile.user.location}
+						locationURL={profile.user.locationURL}
+						posts={profile.user.posts}
+						followers={profile.user.followers}
+						following={profile.user.following}
+						bio={profile.user.bio}
+						website={profile.user.website}
+						reservations={profile.user.reservations}
+						orderOnline={profile.user.orderOnline}
+					/>
+					{toggleContent ? (
+						<div>
+							<ProfileNav onClick={toggle} grid="" boards="active" />
+							<Boards boards={profile.boards} />
+						</div>
+					) : (
+						<div>
+							<ProfileNav onClick={toggle} grid="active" boards="" />
+							<Grid posts={profile.posts} />
+						</div>
+					)}
 				</div>
-				<Footer />
 			</div>
-        );
-    }
+			<Footer />
+		</div>
+	);
+
 }
 
 export default Profile;
