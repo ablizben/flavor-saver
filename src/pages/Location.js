@@ -1,14 +1,19 @@
-// import React, { Component } from "react";
-// import "../App.css";
-// import Header from "../components/Header";
-// import Menu from "../components/Menu";
-// import Footer from "../components/Footer";
+import React from "react";
+import Header from "../components/Header";
+import LocationMap from "../components/LocationMap";
+import Grid from "../components/Grid";
 
-// class Location extends Component {
-//     render() {
+function Location() {
+    return (
+        <div className="container">
+        <Header />
+        <LocationMap />
+        <Grid />
+        <Footer />
+        </div>
+    )
+}
 
-//     }
-//     return()
-// }
 
-// export default Location;
+
+export default Location();
