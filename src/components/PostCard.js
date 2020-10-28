@@ -18,7 +18,7 @@ const styles = {
 
 
 function PostCard() {
-    const [showSave, setShowSave] = useState(true);
+    const [showSave, setShowSave] = useState(false);
 
     const toggleMenu = () => {
         setShowSave(!showSave);
