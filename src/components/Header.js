@@ -40,7 +40,7 @@ function Header() {
           </div>
           <div className="col-2 p-0 d-flex align-items-center">
             <a
-              href="profile.html"
+              href="/profile"
               className="profile-circle"
               style={styles}
             ></a>
