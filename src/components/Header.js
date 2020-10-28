@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from '../contexts/AuthContext';
+import { useHistory } from 'react-router-dom';
 
 const styles = {
   headerStyles: {
@@ -10,6 +12,10 @@ const styles = {
 };
 
 function Header() {
+
+  const [error,setError] = useState("");
+  const { currentUser, logout } = useAuth();
+  const { history } = useHistory();
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
@@ -20,6 +26,16 @@ function Header() {
     console.log("click worked");
     setShowMenu(!showMenu);
     //showMenu = !showMenu
+  };
+
+  async function handleLogout() {
+    setError('');
+    try {
+        await logout();
+        history.push('/login');
+    } catch {
+        setError('Failed to log out');
+    }
   };
 
   return (
@@ -51,11 +67,11 @@ function Header() {
                 <div className="menu" style={styles}>
 	                <div className="close"onClick={toggleMenu}><i className="fal fa-times"></i></div>
 	                <ul className="nav w-100">
-	                    <li><a href="feed.html">Feed</a></li>
-	                    <li><a href="add.html">New Post</a></li>
-	                    <li><a href="search.html">Search</a></li>
-	                    <li><a href="profile.html">Profile</a></li>
-	                    <li><a href="#">Logout</a></li>
+	                    <li><a href="/">Feed</a></li>
+	                    <li><a href="/add-post">New Post</a></li>
+	                    <li><a href="/search">Search</a></li>
+	                    <li><a href="/profile">Profile</a></li>
+	                    <li><a href="#" onClick={handleLogout}>Logout</a></li>
 	                </ul>
                 </div>
       ) : (
