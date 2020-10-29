@@ -32,7 +32,8 @@ const styles = {
 
 
 function PostCard() {
-    const [showSave, setShowSave] = useState(true);
+
+    const [showSave, setShowSave] = useState(false);
     const [posts, setPosts] = useState([]);
 
 
@@ -87,40 +88,42 @@ function PostCard() {
                     </div>
                 )
         })}
-            {showSave ? (
-            <div className="save-modal">
-                <div className="close"onClick={toggleMenu}><i class="fal fa-times"></i></div>
-                <div className="w-100">
-                    <h1>Save to Board</h1>
-                    <form id="saveToBoard">
-    
-            {/* <Alert /> */}
-    
-                        <div className="form-group mb-0">
-                            <label for="board">Board</label>
-                            <div className="select-wrap">
-                                <select class="form-control" id="board">
-                                    <option>General</option>
-                                    <option>Recipe Ideas</option>
-                                    <option>Local</option>
-                                </select>
-                                <i className="fas fa-chevron-down"></i>
-                            </div>	
-                        </div>
-                        <div className="input-group mt-2">
-                            <input type="text" className="form-control plus" placeholder="Create a Board" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                            <div className="input-group-append">
-                                <button className="btn btn-plus mt-0" type="button" id="button-addon2"><i class="far fa-plus"></i></button>
-                            </div>
-                        </div>
-                        <button type="submit" className="btn btn-secondary" onClick={toggleMenu}>Save</button>
-                    </form>
-                </div>
-            </div>
-            ) : (
-                <h4></h4>
-            )}   
-        </div>
+         {showSave ? (
+         <div className="save-modal">
+             <div className="close"onClick={toggleMenu}><i class="fal fa-times"></i></div>
+             <div className="w-100">
+                 <h1>Save to Board</h1>
+                 <form id="saveToBoard">
+ 
+ {/* <Alert /> */}
+ 
+ 
+                     <div className="form-group mb-0">
+                         <label for="board">Board</label>
+                         <div className="select-wrap">
+                             <select class="form-control" id="board">
+                                 <option>General</option>
+                                 <option>Recipe Ideas</option>
+                                 <option>Local</option>
+                             </select>
+                             <i className="fas fa-chevron-down"></i>
+                         </div>	
+                     </div>
+                     <div className="input-group mt-2">
+                         <input type="text" className="form-control plus" placeholder="Create a Board" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                         <div className="input-group-append">
+                             <button className="btn btn-plus mt-0" type="button" id="button-addon2"><i class="far fa-plus"></i></button>
+                         </div>
+                     </div>
+                     <button type="submit" className="btn btn-secondary" onClick={toggleMenu}>Save</button>
+                 </form>
+             </div>
+         </div>
+         ) : (
+             <div></div>
+           )}   
+</div>
+
 
         
     );
