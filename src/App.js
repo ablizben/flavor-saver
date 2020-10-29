@@ -3,9 +3,11 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import AddPost from './pages/AddPost';
+import Search from './pages/Search';
 import PrivateRoute from './pages/PrivateRoute';
 import ForgotPassword from './pages/ForgotPassword.js';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -41,6 +43,8 @@ function App() {
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/add-post" component={AddPost} />
           <Route path="/profile" component={Profile} />
+          <Route path="/search" component={Search} />
+          <Route path="/edit-profile" component={EditProfile} />
         </Switch>
       </AuthProvider>  
     </Router>   
