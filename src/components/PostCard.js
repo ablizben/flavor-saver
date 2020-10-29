@@ -1,4 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
+const samplePost = {
+    "_id": "5f98abbb2e73475adcb5eeb5",
+    "photo": "https://media-cdn.tripadvisor.com/media/photo-s/0d/d4/15/58/clark-burger-poutine.jpg",
+    "location": "Clark Burger",
+    "caption": "Gimme dat poutine",
+    "hashtags": "#burgers #clarkburger",
+    "userId": "5f98ab5b2e73475adcb5eeb4",
+    "createdAt": "2020-10-27T23:22:35.104Z",
+    "updatedAt": "2020-10-27T23:22:35.104Z",
+    "__v": 0
+    };
+
 
 const styles = {
     profCircle: {
@@ -6,19 +20,31 @@ const styles = {
         backgroundSize: "cover",
         backgroundPosition: "center center"
     },
-    cardImage: {
-        height: "100vw ",
-        background: "url('https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center center"
+    // cardImage: {
+    //     height: "100vw ",
+    //     background: `url(${samplePost.photo})`,
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center center"
 
-    }
+    // }
 }
 
 
 
 function PostCard() {
+
     const [showSave, setShowSave] = useState(false);
+    const [posts, setPosts] = useState([]);
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/posts/order/newest')
+            .then((res) => {
+                setPosts(res.data);
+            });
+    }, []);
+
+    console.log(posts);
 
     const toggleMenu = () => {
         setShowSave(!showSave);
@@ -26,33 +52,42 @@ function PostCard() {
 
     return (
         <div>
-        <div className="card">
-            <div className="card-header row m-0">
-                <div className="col image d-flex align-items-center">
-                    <a href="#" className="profile-circle" style={styles.profCircle}></a>
-                </div>
-                <div className="col d-flex align-items-center">
-                    <div>
-                        <a href="#" className="username">woodberrykitchen</a>
-                        <a href="#" className="location"><i className="fas fa-map-marker-alt"></i> Baltimore, Maryland</a>
+            {posts.map((post, index)=>{
+                return (
+                    <div className="card">
+                        <div className="card-header row m-0">
+                            <div className="col image d-flex align-items-center">
+                                <a href="#" className="profile-circle" style={styles.profCircle}></a>
+                            </div>
+                            <div className="col d-flex align-items-center">
+                                <div>
+                                    <a href="#" className="username">{post.userName}</a>
+                                    <a href="#" className="location"><i className="fas fa-map-marker-alt"></i>{post.location}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div className="card-image" style={{
+                                height: "100vw ",
+                                background: `url(${post.photo})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center center"
+                            }}>
+                                <div className="save-hover">
+                                    <button className="btn text-white btn-small" onClick={toggleMenu}>
+                                        <i className="fas fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                        <div className="card-body">
+                            <p className="card-text"></p>
+                            <p className="date mb-0">{post.createdAt}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <a href="#">
-                <div className="card-image" style={styles.cardImage}>
-                    <div className="save-hover">
-                        <button className="btn text-white btn-small" onClick={toggleMenu}>
-                            <i className="fas fa-bookmark"></i>
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </a>
-            <div className="card-body">
-                <p className="card-text"></p>
-                <p className="date mb-0">October 11</p>
-            </div>
-        </div>
+                )
+        })}
          {showSave ? (
          <div className="save-modal">
              <div className="close"onClick={toggleMenu}><i class="fal fa-times"></i></div>
@@ -88,6 +123,7 @@ function PostCard() {
              <div></div>
            )}   
 </div>
+
 
         
     );

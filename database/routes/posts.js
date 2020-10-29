@@ -9,6 +9,14 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//newest first
+//"/posts/order/newest"
+router.route('/order/newest').get((req, res) => {
+    Post.find().sort({createdAt: -1})
+        .then(posts => res.json(posts))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 //Gets post by id
 //"/posts/:id"
 router.route('/:id').get((req, res) => {
@@ -33,6 +41,8 @@ router.route('/add').post((req, res) => {
     const hashtags = req.body.hashtags;
     // const date = Date.parse(req.body.date);
     const userId = req.body.userId;
+    const userName = req.body.userName;
+    const userEmail = req.body.userEmail;
 
     const newPost = new Post({
         photo, 
@@ -40,7 +50,9 @@ router.route('/add').post((req, res) => {
         caption, 
         hashtags,
         // date,
-        userId
+        userId,
+        userName,
+        userEmail
     });
 
     newPost.save()
