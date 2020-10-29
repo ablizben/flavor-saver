@@ -30,7 +30,7 @@ function ProfileInfo(props) {
                 </div>
             </div>
             <div className="col">
-                <a href="edit-profile.html" className="btn btn-primary w-100">Edit Profile</a>
+                <a href="/edit-profile" className="btn btn-primary w-100">Edit Profile</a>
             </div>
             <div className="col">
                 <p className="bio text-center">{props.bio}</p>

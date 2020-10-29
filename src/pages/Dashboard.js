@@ -40,28 +40,32 @@ export default function Dashboard() {
     return (
         <div className="container">
             <Header />
-            
-            <Sort />
-            {/* Have to figure out how to map through all of the posts */}
-            <PostCard />
-
+            <div className="body-content row d-flex justify-content-center">
+		        <div className="col-12">
+                    <Sort />
+                    {/* Have to figure out how to map through all of the posts */}
+                    <PostCard />
+                </div>
+            </div>
             <Footer />
         </div>
-        //*ORIGINAL CODE*/
-        // <>
-        //     <Card>
-        //         <Card.Body>
-        //         <h2 className="text-center mb-4">You are logged in</h2>
-        //         {error && <Alert variant="danger">{error}</Alert>}
-        //         <strong>User:</strong> {currentUser.email}
-        //         </Card.Body>
-        //     </Card>
-        //     <div className="w-100 text-center mt-2">
-        //         <Button variant="link" onClick={handleLogout}>Log Out</Button>
-        //     </div>
-        // </>
     );
 };
+
+
+//*ORIGINAL CODE*/
+// <>
+//     <Card>
+//         <Card.Body>
+//         <h2 className="text-center mb-4">You are logged in</h2>
+//         {error && <Alert variant="danger">{error}</Alert>}
+//         <strong>User:</strong> {currentUser.email}
+//         </Card.Body>
+//     </Card>
+//     <div className="w-100 text-center mt-2">
+//         <Button variant="link" onClick={handleLogout}>Log Out</Button>
+//     </div>
+// </>
 
 // import React, { Component } from "react";
 // import "../App.css";

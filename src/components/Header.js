@@ -49,7 +49,7 @@ function Header() {
           </div>
           <div className="col-8 p-0 d-flex align-items-center">
             <div className="logo">
-              <a href="#">
+              <a href="/">
                 Flavor Saver
               </a>
             </div>
@@ -64,16 +64,16 @@ function Header() {
         </header>
       </div>
       {showMenu ? (
-                <div className="menu" style={styles}>
-	                <div className="close"onClick={toggleMenu}><i className="fal fa-times"></i></div>
-	                <ul className="nav w-100">
-	                    <li><a href="/">Feed</a></li>
-	                    <li><a href="/add-post">New Post</a></li>
-	                    <li><a href="/search">Search</a></li>
-	                    <li><a href="/profile">Profile</a></li>
-	                    <li><a href="#" onClick={handleLogout}>Logout</a></li>
-	                </ul>
-                </div>
+        <div className="menu" style={styles}>
+          <div className="close"onClick={toggleMenu}><i className="fal fa-times"></i></div>
+          <ul className="nav w-100">
+              <li><a href="/">Feed</a></li>
+              <li><a href="/add-post">New Post</a></li>
+              <li><a href="/search">Search</a></li>
+              <li><a href="/profile">Profile</a></li>
+              <li><a href="#" onClick={handleLogout}>Logout</a></li>
+          </ul>
+        </div>
       ) : (
         <div></div>
       )}
