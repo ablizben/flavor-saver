@@ -12,6 +12,7 @@ export default function AddPost(props) {
     const { currentUser, logout } = useAuth();
     const { history } = useHistory();
     const [userId, setUserId] = useState("");
+    const [userName, setUserName] = useState("");
 
     const locationRef = useRef();
     const captionRef = useRef();
@@ -21,10 +22,16 @@ export default function AddPost(props) {
 
     axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
         .then(
-            // res => console.log(res.data[0]._id),
             res => setUserId(res.data[0]._id),
-            console.log(`New userId State: ${userId}`)
+            console.log(`New userId State: ${userId}`),
             );
+    
+    axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+    .then(
+        res => setUserName(res.data[0].username),
+        console.log(`New userName State: ${userName}`),
+        );
+    
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -34,7 +41,9 @@ export default function AddPost(props) {
             location: locationRef.current.value,
             caption: captionRef.current.value,
             hashtags: hashtagsRef.current.value,
-            userId: userId
+            userId: userId,
+            userName: userName,
+            userEmail: currentUser.email
         };
         
         axios.post('http://localhost:3001/posts/add', post)
