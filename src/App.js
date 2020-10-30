@@ -9,6 +9,7 @@ import ForgotPassword from './pages/ForgotPassword.js';
 import Profile from './pages/Profile';
 import Hashtag from './pages/Hashtag';
 import EditProfile from './pages/EditProfile';
+import Location from './pages/Location';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -47,6 +48,7 @@ function App() {
           <Route path="/search" component={Search} />
           <Route path="/hashtag" component={Hashtag} />
           <Route path="/edit-profile" component={EditProfile} />
+          <Route path="/location" component={Location} />
         </Switch>
       </AuthProvider>  
     </Router>   

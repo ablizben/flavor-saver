@@ -10,9 +10,11 @@ function styles(background) {
 }
 
 function Grid(props) {
+	const { posts } = props;
+
 	return (
 	    <div className="photo-grid row">
-			{props.posts.map(item => (
+			{posts && posts.map(item => (
 				<a href="#" className="col-4" key={item._id}><div className="grid-image" style={styles(item)}></div></a>
 			))}
 		</div>

@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import MetaData from "../components/MetaData";
-import { render } from "@testing-library/react";
+import SearchResults from "../components/SearchResults";
+import { searchForLocation } from "../api/google-maps";
 
 function Search() {
 
     const [showMenu, setShowMenu] = useState(false);
+    const [locationQuery, setLocationQuery] = useState('');
+    const [locationResults, setLocationResults] = useState([]);
         
     useEffect(() => {}, [showMenu]);
 
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
+    const updateLocationQuery = async (event) => {
+        const { target: { value } } = event;
+        setLocationQuery(value);
+        const locationResults = await searchForLocation(value);
+        setLocationResults(locationResults);
+        setShowMenu(!!value);
     }
 
     return (
@@ -23,19 +29,13 @@ function Search() {
                         <div className="form-group">
                             <div className="input-wrap">
                                 <i className="fas fa-search"></i>
-                                <input onKeyUp={toggleMenu} id="search" type="text" className="form-control search" placeholder="Search" aria-label="Search Bar" aria-describedby="search" />
+                                <input onKeyUp={updateLocationQuery} id="search" name="search" type="text" className="form-control search" placeholder="Search" aria-label="Search Bar" aria-describedby="search" />
                             </div>
                         </div>
                     </form>
 
                     {showMenu ? (
-                        <ul className="search-results">
-                            <MetaData link="#" type="hashtag" term="baltimore" />
-                            <MetaData link="#" type="location" term="Baltimore, Maryland" />
-                            <MetaData link="#" type="profile" term="baltimoremuseumofart" meta="The Baltimore Museum of Art" />
-                            <MetaData link="#" type="hashtag" term="baltimore" />
-                            <MetaData link="#" type="location" term="Baltimore, Maryland" />
-                        </ul>
+                        <SearchResults locationResults={locationResults} />
                     ) : (
                         <div className="search-instructions text-center d-flex align-items-center">
                             <div className="w-100">
@@ -50,6 +50,7 @@ function Search() {
                 </div>
             </div>
             <Footer />
+            <div id="map" />
         </div>
     );
 
