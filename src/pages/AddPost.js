@@ -137,7 +137,6 @@ export default function AddPost(props) {
                         className="file-upload-input"
                         type="file"
                         {...getInputProps()}
-                        // onChange={handleChange}
                       />
                       {isDragActive ? (
                         <span>DROP HERE</span>
