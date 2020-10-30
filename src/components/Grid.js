@@ -1,9 +1,9 @@
 import React from 'react';
 
 function styles(background) {
-	const {image} = background;
+	const {photo} = background;
 	return {
-		background: `url(${image})`,
+		background: `url(${photo})`,
 		backgroundSize: 'cover',
 		backgroundPosition: 'center center'
 	}
@@ -13,7 +13,7 @@ function Grid(props) {
 	return (
 	    <div className="photo-grid row">
 			{props.posts.map(item => (
-				<a href={item.url} className="col-4" key={item.id}><div className="grid-image" style={styles(item)}></div></a>
+				<a href="#" className="col-4" key={item._id}><div className="grid-image" style={styles(item)}></div></a>
 			))}
 		</div>
 	);

@@ -25,10 +25,18 @@ router.route('/:id').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-//Gets posts by user
+//Gets posts by user id
 //"/posts/user/:userId"
 router.route('/user/:userId').get((req, res) => {
     Post.find({ "userId": req.params.userId })
+        .then(posts => res.json(posts))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+//Gets posts by user email
+//"/posts/email/:email"
+router.route('/email/:email').get((req, res) => {
+    Post.find({ "userEmail": req.params.email })
         .then(posts => res.json(posts))
         .catch(err => res.status(400).json('Error: ' + err));
 });
