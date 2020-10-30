@@ -1,14 +1,18 @@
-// import React, { Component } from "react";
-// import "../App.css";
-// import Header from "../components/Header";
-// import Menu from "../components/Menu";
-// import Footer from "../components/Footer";
+import React from "react";
+import Header from "../components/Header";
+import PostCard from "../components/PostCard";
+import Footer from "../components/Footer";
 
-// class Post extends Component {
-//     render() {
+function Post() {
+    return (
+        <div>
+            
+            <Header />
+            <PostCard />
+            <Footer />
 
-//     }
-//     return()
-// }
+        </div>
+    )
+}
 
-// export default Post;
+export default Post;

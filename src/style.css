@@ -697,6 +697,7 @@ h1.caps {
     color: #fff;
     opacity: 1;
     font-size: 18px;
+    z-index: 9999;
 }
 
 
