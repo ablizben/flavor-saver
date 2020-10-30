@@ -161,7 +161,7 @@ export default function AddPost(props) {
                             <label class="pb-0" for="hashtags">Hashtags</label>
                             <input ref={hashtagsRef} id="hashtags" type="text" class="form-control" aria-label="Hashtags" aria-describedby="hashtags"/>
                         </div>
-                        <button type="submit" class="btn btn-primary">Post {handleUpload}</button>
+                        <button type="submit" class="btn btn-primary"onClick={handleUpload}>Post </button>
                     </form>
 
                 </div>
