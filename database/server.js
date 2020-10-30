@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require('dotenv').config();
 
+const LOCAL_MONGO = 'mongodb://localhost/flavor-saver';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -19,7 +20,7 @@ app.use('/users', userRouter);
 app.use('/posts', postRouter);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || LOCAL_MONGO, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log("MongoDB database connection established successfully!");
 })
