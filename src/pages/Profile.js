@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useAuth } from '../contexts/AuthContext';
+import axios from 'axios';
+
 
 import ProfileInfo from '../components/ProfileInfo';
 import ProfileNav from '../components/ProfileNav';
@@ -16,8 +19,8 @@ const profile = {
 	  posts: "20",
 	  followers: "20",
 	  following: "20",
-	  bio: "Patio dining Wednesday - Sunday.",
-	  website: "https://www.woodberrykitchen.com",
+	  bio: "I like food!",
+	  website: "",
 	  reservations: "#",
 	  orderOnline: "#"
 	},
@@ -75,6 +78,31 @@ const profile = {
 function Profile() {
 
 	const [toggleContent, setToggleContent] = useState(false);
+
+	const { currentUser, logout } = useAuth();
+	const [userProfile, setUserProfile] = useState({});
+	const [userPosts, setUserPosts] = useState([]);
+
+
+
+    useEffect(() => {
+		axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+			.then((res) => {
+				console.log(res.data[0]);
+				setUserProfile(res.data[0]);
+			});
+
+		axios.get(`http://localhost:3001/posts/email/${currentUser.email}`)
+		.then((res) => {
+			console.log(res.data);
+			setUserPosts(res.data);
+		});
+		
+    }, []);
+
+				console.log(userPosts);
+
+
 	
 	useEffect(() => {}, [toggleContent]);
 	
@@ -89,8 +117,8 @@ function Profile() {
 				<div className="col-12">			
 					<ProfileInfo 
 						image={profile.user.image}
-						name={profile.user.name} 
-						location={profile.user.location}
+						name={userProfile.displayName} 
+						location={userProfile.location}
 						locationURL={profile.user.locationURL}
 						posts={profile.user.posts}
 						followers={profile.user.followers}
@@ -108,7 +136,7 @@ function Profile() {
 					) : (
 						<div>
 							<ProfileNav onClick={toggle} grid="active" boards="" />
-							<Grid posts={profile.posts} />
+							<Grid posts={userPosts} />
 						</div>
 					)}
 				</div>
