@@ -153,7 +153,7 @@ const [image, setImage] = useState(null);
                         <label className="pb-0" for="ordernow">Order Now</label>
                         <input type="text" className="form-control" aria-label="Order Now" aria-describedby="ordernow" />
                     </div>
-                    <button type="submit" className="btn btn-primary">Save{handleUpload}</button>
+                    <button type="submit" className="btn btn-primary" onClick={handleUpload}>Save</button>
                 </form>
 
                 </div>
