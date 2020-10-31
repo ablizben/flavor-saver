@@ -51,13 +51,13 @@ export default function AddPost(props) {
 
     // console.log(currentUser.email);
 
-    axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+    axios.get(`/users/email/${currentUser.email}`)
         .then(
             res => setUserId(res.data[0]._id),
             console.log(`New userId State: ${userId}`),
             );
     
-    axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+    axios.get(`/users/email/${currentUser.email}`)
     .then(
         res => setUserName(res.data[0].username),
         console.log(`New userName State: ${userName}`),
@@ -77,7 +77,7 @@ export default function AddPost(props) {
             userEmail: currentUser.email
         };
         
-        axios.post('http://localhost:3001/posts/add', post)
+        axios.post('/posts/add', post)
             .then(res => console.log(res.data));
 
         const uploadTask = storage.ref(`images/${image.name}`).put(image);

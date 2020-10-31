@@ -18,7 +18,7 @@ export default function Dashboard() {
 
     // console.log(currentUser.email);
 
-    axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+    axios.get(`/users/email/${currentUser.email}`)
         .then(
             // res => console.log(res.data[0]._id),
             res => setUserId(res.data[0]._id),
