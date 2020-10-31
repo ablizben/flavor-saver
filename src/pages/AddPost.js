@@ -46,27 +46,7 @@ export default function AddPost(props) {
         setPreviewURL("");
       };
     
-      const handleUpload = (event) => {
-        event.preventDefault();
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        uploadTask.on(
-          "state_changed",
-          (error) => {
-            console.log(error);
-          },
-          () => {
-            storage
-              .ref("images")
-              .child(image.name)
-              .getDownloadURL()
-              .then((url) => {
-                //to show in console.log
-                console.log(url);
-              });
-          }
-        );
-      };
-    
+
       console.log("image: ", image);
 
     // console.log(currentUser.email);
@@ -100,9 +80,32 @@ export default function AddPost(props) {
         axios.post('http://localhost:3001/posts/add', post)
             .then(res => console.log(res.data));
 
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on(
+          "state_changed",
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            storage
+              .ref("images")
+              .child(image.name)
+              .getDownloadURL()
+              .then((url) => {
+                //to show in console.log
+                console.log(url);
+              });
+          }
+        );
+
         props.history.push('/');
     };
 
+      // const handleUpload = (event) => {
+      //   event.preventDefault();
+        
+      // };
+    
     return (
         <div className="container">
             <Header />
@@ -161,7 +164,9 @@ export default function AddPost(props) {
                             <label class="pb-0" for="hashtags">Hashtags</label>
                             <input ref={hashtagsRef} id="hashtags" type="text" class="form-control" aria-label="Hashtags" aria-describedby="hashtags"/>
                         </div>
-                        <button type="submit" class="btn btn-primary"onClick={handleUpload}>Post </button>
+                        <button type="submit" class="btn btn-primary"
+                        // onClick={handleUpload}
+                        >Post </button>
                     </form>
 
                 </div>
