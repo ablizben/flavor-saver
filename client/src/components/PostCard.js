@@ -38,7 +38,7 @@ function PostCard() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/posts/order/newest')
+        axios.get('/posts/order/newest')
             .then((res) => {
                 setPosts(res.data);
             });

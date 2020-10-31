@@ -86,13 +86,13 @@ function Profile() {
 
 
     useEffect(() => {
-		axios.get(`http://localhost:3001/users/email/${currentUser.email}`)
+		axios.get(`/users/email/${currentUser.email}`)
 			.then((res) => {
 				console.log(res.data[0]);
 				setUserProfile(res.data[0]);
 			});
 
-		axios.get(`http://localhost:3001/posts/email/${currentUser.email}`)
+		axios.get(`/posts/email/${currentUser.email}`)
 		.then((res) => {
 			console.log(res.data);
 			setUserPosts(res.data);

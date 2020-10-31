@@ -36,7 +36,7 @@ export default function Signup() {
             location: locationRef.current.value
         };
         
-        axios.post('http://localhost:3001/users/add', user)
+        axios.post('/users/add', user)
             .then(res => console.log(res.data));
 
         try {
