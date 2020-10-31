@@ -77,7 +77,7 @@ export default function AddPost(props) {
             userEmail: currentUser.email
         };
         
-        axios.post('http://localhost:3001/posts/add', post)
+        axios.post('/posts/add', post)
             .then(res => console.log(res.data));
 
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
